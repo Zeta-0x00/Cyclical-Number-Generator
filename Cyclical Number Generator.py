@@ -16,15 +16,19 @@ def Cicles(p,bFlag):
         while (cont<p):
             j = []
             flag = True
+            k = 1
             for i in range(1, p):
-                if(pow(cont%p,i%p)%p in j):
+                k  = (k*cont)%p
+                if(k in j):
                     flag = False
+                    break
                 else:
-                    j.append(pow(cont%p,i%p)%p)
+                    if(k != 1):
+                        j.append(k)
             if(flag):
+                l.append(cont)
                 if(bFlag):
                     print(cont)
-                l.append(cont)
             cont += 1
         return l
 def ErrorCatch():
@@ -69,18 +73,19 @@ def getNumber():
         return getNumber()
 def About():
     Clean()
-    print("Cyclical Number Generator v. 0.3\nElaborated by Daniel \'Zeta\' Hoffman\nDeveloped solely with educational character for the ITCR cryptography course\nMIT research and education licensed work")
+    print("----------------------------------------------\n|Cyclical Number Generator v. 0.5            |\n|Elaborated by Daniel \'Zeta\' Hoffman         |\n|Developed solely with educational character | \n|\tfor the ITCR cryptography course     | \n----------------------------------------------")
     Pause()
     
 def Menu():
     Clean()
-    print("\t ▄▄·  ▄· ▄▌ ▄▄· ▄▄▌  ▪   ▄▄·  ▄▄▄· ▄▄▌       ▐ ▄ ▄• ▄▌• ▌ ▄ ·. ▄▄▄▄· ▄▄▄ .▄▄▄       ▄▄ • ▄▄▄ . ▐ ▄ ▄▄▄ .▄▄▄   ▄▄▄·▄▄▄▄▄      ▄▄▄  \n"
-          "\t▐█ ▌▪▐█▪██▌▐█ ▌▪██•  ██ ▐█ ▌▪▐█ ▀█ ██•      •█▌▐██▪██▌·██ ▐███▪▐█ ▀█▪▀▄.▀·▀▄ █·    ▐█ ▀ ▪▀▄.▀·•█▌▐█▀▄.▀·▀▄ █·▐█ ▀█•██  ▪     ▀▄ █·\n"
-          "\t██ ▄▄▐█▌▐█▪██ ▄▄██▪  ▐█·██ ▄▄▄█▀▀█ ██▪      ▐█▐▐▌█▌▐█▌▐█ ▌▐▌▐█·▐█▀▀█▄▐▀▀▪▄▐▀▀▄     ▄█ ▀█▄▐▀▀▪▄▐█▐▐▌▐▀▀▪▄▐▀▀▄ ▄█▀▀█ ▐█.▪ ▄█▀▄ ▐▀▀▄ \n"
-          "\t▐███▌ ▐█▀·.▐███▌▐█▌▐▌▐█▌▐███▌▐█ ▪▐▌▐█▌▐▌    ██▐█▌▐█▄█▌██ ██▌▐█▌██▄▪▐█▐█▄▄▌▐█•█▌    ▐█▄▪▐█▐█▄▄▌██▐█▌▐█▄▄▌▐█•█▌▐█ ▪▐▌▐█▌·▐█▌.▐▌▐█•█▌\n"
-          "\t·▀▀▀   ▀ • ·▀▀▀ .▀▀▀ ▀▀▀·▀▀▀  ▀  ▀ .▀▀▀     ▀▀ █▪ ▀▀▀ ▀▀  █▪▀▀▀·▀▀▀▀  ▀▀▀ .▀  ▀    ·▀▀▀▀  ▀▀▀ ▀▀ █▪ ▀▀▀ .▀  ▀ ▀  ▀ ▀▀▀  ▀█▄▀▪.▀  ▀\n")
+    print("\n\t------------------------------------------------------------------------------\n\t ▄▄·  ▄· ▄▌ ▄▄· ▄▄▌  ▪   ▄▄·  ▄▄▄· ▄▄▌       ▐ ▄ ▄• ▄▌• ▌ ▄ ·. ▄▄▄▄· ▄▄▄ .▄▄▄  \n"
+          "\t▐█ ▌▪▐█▪██▌▐█ ▌▪██•  ██ ▐█ ▌▪▐█ ▀█ ██•      •█▌▐██▪██▌·██ ▐███▪▐█ ▀█▪▀▄.▀·▀▄ █· \n"
+          "\t██ ▄▄▐█▌▐█▪██ ▄▄██▪  ▐█·██ ▄▄▄█▀▀█ ██▪      ▐█▐▐▌█▌▐█▌▐█ ▌▐▌▐█·▐█▀▀█▄▐▀▀▪▄▐▀▀▄  \n"
+          "\t▐███▌ ▐█▀·.▐███▌▐█▌▐▌▐█▌▐███▌▐█ ▪▐▌▐█▌▐▌    ██▐█▌▐█▄█▌██ ██▌▐█▌██▄▪▐█▐█▄▄▌▐█•█▌  \n"
+          "\t·▀▀▀   ▀ • ·▀▀▀ .▀▀▀ ▀▀▀·▀▀▀  ▀  ▀ .▀▀▀     ▀▀ █▪ ▀▀▀ ▀▀  █▪▀▀▀·▀▀▀▀  ▀▀▀ .▀  ▀ \n\n\t\t     ▄▄ • ▄▄▄ . ▐ ▄ ▄▄▄ .▄▄▄   ▄▄▄·▄▄▄▄▄      ▄▄▄  \n\t\t   ▐█ ▀ ▪▀▄.▀·•█▌▐█▀▄.▀·▀▄ █·▐█ ▀█•██  ▪     ▀▄ █·\n\t\t   ▄█ ▀█▄▐▀▀▪▄▐█▐▐▌▐▀▀▪▄▐▀▀▄ ▄█▀▀█ ▐█.▪ ▄█▀▄ ▐▀▀▄ \n\t\t  ▐█▄▪▐█▐█▄▄▌██▐█▌▐█▄▄▌▐█•█▌▐█ ▪▐▌▐█▌·▐█▌.▐▌▐█•█▌\n\t\t   ·▀▀▀▀  ▀▀▀ ▀▀ █▪ ▀▀▀ .▀  ▀ ▀  ▀ ▀▀▀  ▀█▄▀▪.▀  ▀\n\t------------------------------------------------------------------------------\n")
     print("\tBy Zeta")
-    n = input("\nSelect Any option\n1. Calculate a Cyclicals Numbers by\n2. Identify if the number is prime\n3. About this software\n0. Exit\n>>> ")
+    time.sleep(0.4)
+    n = input("\n\nSelect Any option\n1. Calculate a Cyclicals Numbers by\n2. Identify if the number is prime\n3. About this software\n0. Exit\n>>> ")
     if(n == '0'):
         sys.exit()
     elif(n == '1'):
